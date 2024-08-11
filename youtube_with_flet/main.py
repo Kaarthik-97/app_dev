@@ -1,8 +1,10 @@
 import flet as ft
 from flet import *
-from nselib.libutil import *
-from nselib.constants import *
-from nselib import capital_market
+import pandas as pd
+import requests
+# from nselib.libutil import *
+# from nselib.constants import *
+# from nselib import capital_market
 from bs4 import BeautifulSoup as bs
 import regex as re
 
@@ -47,8 +49,8 @@ def main_page(page: Page):
             cur_value.value = None
             page.update(cur_value)
         
-    market_list = capital_market.equity_list()
-    company_list = market_list["NAME OF COMPANY"].to_list()
+    # market_list = capital_market.equity_list()
+    # company_list = market_list["NAME OF COMPANY"].to_list()
 
     # datatable = ft.DataTable(
     #     columns=headers(market_list),
@@ -64,13 +66,13 @@ def main_page(page: Page):
         page.update(text_field)
         return text_field
     
-    def check_company():
-        # company_list_to_display = []
-        for company in company_list:
-            if tb1.value in company:
-                # company_list_to_display.append(company)
-                # lv.controls.append(ft.Text(company))
-                pass
+    # def check_company():
+    #     # company_list_to_display = []
+    #     for company in company_list:
+    #         if tb1.value in company:
+    #             # company_list_to_display.append(company)
+    #             # lv.controls.append(ft.Text(company))
+    #             pass
             
     tb1 = TextField(label = "Please Enter the Stock Name",text_align = "center") #,on_change=check_company()
 
